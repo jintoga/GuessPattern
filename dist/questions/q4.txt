@@ -1,0 +1,50 @@
+abstract class MyClass {
+
+    protected Detail detail;
+
+    public Detail getDetail() {
+        return detail;
+    }
+
+    public void createNewDetail() {
+        detail = new Detail();
+    }
+
+    public abstract void SetTypeDetail();
+}
+
+public class ConcreteMyClass1 extends MyClass {
+    
+    @Override
+    public void SetTypeDetail() {
+        detail.setType("Noun");
+    }
+}
+
+
+public class ConcreteMyClass2 extends MyClass {
+    
+    @Override
+    public void SetTypeDetail() {
+        detail.setType("Verb");
+    }
+}
+
+
+public class Director {
+
+    private MyClass detail;
+
+    public void setWordMyClass(MyClass detail) {
+        this.detail = detail;
+    }
+
+    public Detail getMyClass() {
+        return detail.getDetail();
+    }
+
+    public void constructDetail() {
+        detail.createNewDetail();
+        detail.SetTypeDetail();
+    }
+}

@@ -1,0 +1,24 @@
+public interface AddWord {
+
+    public void addNewWord(Word word, Language lang, ArrayList<Word> listword);
+}
+
+
+public class HelpAddNewWord implements AddWord {
+     
+    @Override
+    public void addNewWord(Word word, Language lang, ArrayList<Word> listword) {
+        if (lang != null) {
+            lang.getName();
+            if (word != null) {
+                word.setLang(lang);
+                listword.add(word);
+            } else {
+                System.out.println("NULL WORD");
+            }
+
+        } else {
+            System.out.println("NULL");
+        }
+    }
+}

@@ -1,0 +1,28 @@
+abstract public class WordMyClass implements AddWord {
+
+    protected AddWord doSomethingdWord;
+
+    public WordMyClass(AddWord doSomethingdWord) {
+        this.doSomethingdWord = doSomethingdWord;
+    }
+}
+
+public class AsteriskWordMyClass extends WordMyClass {
+
+    public AsteriskWordMyClass(AddWord doSomethingdWord) {
+        super(doSomethingdWord);
+    }
+ 
+    @Override
+    public void addNewWord(Word word, Language lang, ArrayList<Word> listword) {
+        
+        putAsterisk(word);
+        doSomethingdWord.addNewWord(word, lang, listword);
+    }
+ 
+
+    private void putAsterisk(Word word) {
+        String wordname = word.getName();
+        word.setName("*" + wordname + "*");
+    }
+}

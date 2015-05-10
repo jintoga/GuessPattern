@@ -1,0 +1,16 @@
+public class Demo{
+    private static volatile Demoinstance;
+    private  Demo() { }
+ 
+    public static DemogetInstance() {
+        if (instance == null ) {
+            synchronized ( Demo.class) {
+                if (instance == null) {
+                    instance = new  Demo();
+                }
+            }
+        }
+ 
+        return instance;
+    }
+}
